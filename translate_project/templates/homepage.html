@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
+<body>
+    <div class="icontainer">
+        <div id="box">
+            <section class="game-section">
+                <h1>Welcome to the Translation Game!</h1>
+                
+                    <p>1. Choose Question Language</p>
+                    <p>2. Choose Answer Language</p>
+                    <p>3. Learn a new language!</p>
+                
+            </section>
+            <section class="point-system">
+                <h2>Point System</h2>
+                <ul>
+                    <li>Correct translation: +10 points</li>
+                    <li>Incorrect translation: -5 points</li>
+                    <li>Streak of 5: +30 points and advance to next level</li>
+                    <li>Wrong streak of 5: -20 points and revert to easier level</li>
+                </ul>
+                <a href="../game" class="btn-play">Let's Learn!</a>
+            </section>
+        </div>
+        
+    </div>
+</body>
+
+{% endblock content %}

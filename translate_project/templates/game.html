@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/game.css' %}">
+
+
+<div id="section-container">
+  <section id="stat-section">
+    <div class="stat-div">
+      <p class="stat" id="correct-count">Correct: 0/0</p>
+      <p class="stat" id="streak">Streak: 0</p>
+    </div>
+    <div class="stat-div">
+      <p class="stat" id="points">Points: 0</p>
+      <p class="stat" id="level">Level: Easy</p>
+    </div>
+    
+  </section>
+  
+  <section id="game-section">
+    <div class="container">
+      <div class="question-container">
+        <p class="label">Translate from this Language</p>
+        <div class="qrow">
+          <button class="qlanguage-button qactive" name="en">English</button>
+          <button class="qlanguage-button" name="he">עברית</button>
+          <button class="qlanguage-button" name="ru">русский</button>
+          <button class="qlanguage-button" name="fr">Français</button>
+          <button class="qlanguage-button" name="ar">عربي</button>
+        </div>
+        <div class="qword-row">
+          <p class="label">This Word:</p>
+          <p id="qword"></p>
+        </div>
+      </div>
+      <div class="arrow-container">
+        <img src="https://freepngimg.com/thumb/arrow/11-2-arrow-png-hd.png" id="arrow">
+      </div>
+      <div class="answer-container">
+        <p class="label">Into this Language</p>
+        <div class="arow">
+          <button class="alanguage-button" name="en">English</button>
+          <button class="alanguage-button aactive" name="he">עברית</button>
+          <button class="alanguage-button" name="ru">русский</button>
+          <button class="alanguage-button" name="fr">Français</button>
+          <button class="alanguage-button" name="ar">عربي</button>
+        </div>
+        <div class="input-row">
+          <input type="text" id="userGuess" placeholder="Your Answer...">
+        </div>
+      </div>
+      
+    </div>
+    <p id="correction"></p>
+    <form method="post">
+      {% csrf_token %}
+      {{word_form.as_p}}
+      <button id="submit" type="submit">Submit</button>
+    </form>
+  
+  </section>
+ 
+</div>
+ <div id="extra"></div>
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="{% static 'js/game.js' %}"></script>
+
+{% endblock content %}
